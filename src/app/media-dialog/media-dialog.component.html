@@ -1,1 +1,9 @@
-<p>media-dialog works!</p>
+<div mat-dialog-content class="dialog-wrapper">
+    <div [ngClass]="isVertical === true ? 'vertical-img': 'horizontal-img'">
+        
+        <div [ngClass]="isVertical === true ? 'vertical-img': 'horizontal-img'">
+            <button mat-dialog-close class="dialog-button-close">X</button>
+            <img src={{data.url}} [ngClass]="isVertical === true ? 'vertical-img': 'horizontal-img'" #image (load)="onLoad()">
+        </div>        
+    </div>
+</div>

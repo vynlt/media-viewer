@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
+import { MediaDialogComponent } from '../media-dialog/media-dialog.component';
 
 const IMAGES = [
   {url: 'https://i.pinimg.com/564x/5c/cd/75/5ccd7544f3908ca293f66e9b186015df.jpg'},
@@ -15,10 +18,16 @@ const IMAGES = [
 })
 export class MediaGalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
   images = IMAGES;
 
   ngOnInit(): void {
+  }
+
+  openDialog(url: string): void {
+    const dialogRef = this.dialog.open(MediaDialogComponent, {
+      data: {url}
+    });
   }
 
 }

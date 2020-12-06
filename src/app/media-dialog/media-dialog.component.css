@@ -1,0 +1,41 @@
+.dialog-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    width: 100vw;
+    overflow: initial;
+    max-height: 100vh;
+    margin: initial;
+    padding: initial;
+    /* verical align */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.vertical-img{
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.horizontal-img{
+    width: 100%;
+    height: auto;
+}
+
+
+.dialog-button-close-horizontal{
+    position: fixed;
+    right: 0;
+}
+
+.dialog-button-close{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
