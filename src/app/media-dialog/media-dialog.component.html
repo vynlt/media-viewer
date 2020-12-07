@@ -1,10 +1,10 @@
 <div mat-dialog-content class="dialog-wrapper">
-    <div class="content" [ngClass]="{'horizontal-content': isVertical !== true}">
+    <div class="content" [ngClass]="{'horizontal-content': isVertical !== true && (data.mediaType === 'image' || data.mediaType === 'audio'), 'video-content': data.mediaType === 'video'}">
         <div [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" class="center-align">
             <span *ngIf="data.mediaType !== 'audio'" mat-dialog-close class="material-icons dialog-button-close">
                 close
             </span>
-            <video *ngIf="data.mediaType === 'video'" controls [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">
+            <video *ngIf="data.mediaType === 'video'" controls [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()" width="100%">
                 <source type="video/mp4" src={{data.mediaContent}}>
             </video>
             <img *ngIf="data.mediaType === 'image'" src={{data.mediaContent}} [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">    
