@@ -1,6 +1,26 @@
 <div mat-dialog-content class="dialog-wrapper">
-    <div [ngClass]="isVertical === true ? 'vertical-img': 'horizontal-img'">
-            <button mat-dialog-close class="dialog-button-close">X</button>
-            <img src={{data.url}} [ngClass]="isVertical === true ? 'vertical-img': 'horizontal-img'" #image (load)="onLoad()">    
+    <div class="content" [ngClass]="{'horizontal-content': isVertical !== true}">
+        <div [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" class="center-align">
+            <span *ngIf="data.mediaType !== 'audio'" mat-dialog-close class="material-icons dialog-button-close">
+                close
+            </span>
+            <video *ngIf="data.mediaType === 'video'" controls [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">
+                <source type="video/mp4" src={{data.mediaContent}}>
+            </video>
+            <img *ngIf="data.mediaType === 'image'" src={{data.mediaContent}} [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">    
+           
+
+            <div *ngIf="data.mediaType === 'audio'" class="audio-wrapper">
+                <span *ngIf="data.mediaType === 'audio'" mat-dialog-close class="material-icons dialog-audio-close">
+                    close
+                </span>
+                <audio controls>
+                <source type="audio/mpeg" src={{data.mediaContent}}>
+            </audio>
+            </div>
+        </div>
+    </div>
+    <div class="comment">
+        {{data.mediaComment}} 
     </div>
 </div>

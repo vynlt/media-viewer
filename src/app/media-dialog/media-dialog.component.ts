@@ -2,7 +2,9 @@ import { Component, Inject, ViewChild, ElementRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export interface DialogData{
-  url: string,
+  mediaType: string,
+  mediaContent: string,
+  mediaComment: string
 }
 
 @Component({
@@ -11,8 +13,9 @@ export interface DialogData{
   styleUrls: ['./media-dialog.component.css']
 })
 export class MediaDialogComponent{
-  @ViewChild('image')
-  public image!: ElementRef;
+  @ViewChild('media')
+  public media!: ElementRef;
+  
   isVertical: boolean = false;
 
   constructor(
@@ -21,9 +24,11 @@ export class MediaDialogComponent{
     ) {}
 
     onLoad() {
-      const imgWidth = (this.image.nativeElement as HTMLImageElement).width;
-      const imgHeight = (this.image.nativeElement as HTMLImageElement).height;
+      console.log(this.data);
+      const imgWidth = (this.media.nativeElement as HTMLImageElement).width;
+      const imgHeight = (this.media.nativeElement as HTMLImageElement).height;
       
+      console.log(imgWidth, imgHeight);
       const imgRatio = imgHeight / imgWidth;
       const screenRatio = window.innerHeight / window.innerWidth;
       if (imgRatio > screenRatio){

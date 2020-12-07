@@ -1,5 +1,13 @@
 <div class="container">
-    <div class="gallery" *ngFor="let image of images" (click)="openDialog(image.url)">
-        <img src={{image.url}} alt="Cinque Terre" width="600" height="400">
+    <div class="gallery" *ngFor="let mediaObject of mediaObjects" (click)="openDialog(mediaObject)">
+        <img *ngIf="mediaObject.mediaType === 'image'" src={{mediaObject.mediaContent}} width="600" height="400">
+        <video *ngIf="mediaObject.mediaType === 'video'" width="600" height="400">
+            <source type="video/mp4" src={{mediaObject.mediaContent}}>
+        </video>
+        <div *ngIf="mediaObject.mediaType === 'audio'" class="audio-thumbnail">
+            <div class="material-icons">
+                volume_up
+            </div>
+        </div>
     </div>
 </div>

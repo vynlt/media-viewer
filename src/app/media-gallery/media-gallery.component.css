@@ -18,7 +18,16 @@ div.gallery {
     border: 1px solid #777;
   }
   
-  div.gallery img {
+  div.gallery img, video {
     width: 100%;
     height: auto;
+  }
+
+  .audio-thumbnail{
+    display: flex;
+    justify-content: center;
+  }
+
+  .audio-thumbnail div{
+    font-size: 40px;
   }

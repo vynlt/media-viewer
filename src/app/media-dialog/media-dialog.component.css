@@ -15,26 +15,71 @@
     flex-direction: column;
 }
 
-.vertical-img{
+.content{
+    height: 80%;
+    width: fit-content;
+    margin: 0 auto;;
+}
+
+.comment{
+    background-color: white;
+    height: 20%;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    word-break: break-word;
+}
+
+.vertical-media{
     width: auto;
     height: 100%;
     margin: 0 auto;
     position: relative;
 }
 
-.horizontal-img{
-    width: 100%;
+.horizontal-content{
     height: auto;
 }
 
+.horizontal-media{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
 
-.dialog-button-close-horizontal{
-    position: fixed;
-    right: 0;
+.dialog-button-close, .dialog-audio-close{
+    cursor: pointer;
 }
 
 .dialog-button-close{
     position: absolute;
     right: 0;
     z-index: 1;
+    color: white;
 }
+
+.dialog-audio-close{
+    position: absolute;
+    right: -1.5rem;
+    top: -0.75rem;
+    z-index: 1;
+    color: white;
+}
+
+.center-align{
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-wrapper audio{
+    display: block;
+}
+
+.audio-wrapper{
+    position: relative;
+}
+
+::ng-deep.mat-dialog-container{
+    background: unset;
+    box-shadow: unset;
+  }
