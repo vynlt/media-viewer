@@ -1,33 +1,33 @@
 .container{
-    display: flex;
-    margin-top: 30px;
+  display: flex;
+  margin-top: 30px;
 }
 
-div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
   
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
+.gallery:hover {
+  border: 1px solid #777;
+}
   
-  div.gallery img, video {
-    width: 100%;
-    height: auto;
-  }
+.gallery img, video {
+  width: 100%;
+  height: auto;
+}
 
-  .audio-thumbnail{
-    display: flex;
-    justify-content: center;
-  }
+.audio-thumbnail{
+  display: flex;
+  justify-content: center;
+}
 
-  .audio-thumbnail div{
-    font-size: 40px;
-  }
+.audio-thumbnail div{
+  font-size: 40px;
+}

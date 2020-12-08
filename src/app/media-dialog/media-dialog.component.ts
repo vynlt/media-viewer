@@ -24,11 +24,9 @@ export class MediaDialogComponent{
     ) {}
 
     onLoad() {
-      console.log(this.data);
       const imgWidth = (this.media.nativeElement as HTMLImageElement).width;
       const imgHeight = (this.media.nativeElement as HTMLImageElement).height;
       
-      console.log(imgWidth, imgHeight);
       const imgRatio = imgHeight / imgWidth;
       const screenRatio = window.innerHeight / window.innerWidth;
       if (imgRatio > screenRatio){

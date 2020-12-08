@@ -1,13 +1,20 @@
 <div class="container">
     <div class="gallery" *ngFor="let mediaObject of mediaObjects" (click)="openDialog(mediaObject)">
+        
+        <!-- media type: image -->
         <img *ngIf="mediaObject.mediaType === 'image'" src={{mediaObject.mediaContent}} width="600" height="400">
+        
+        <!-- media type: video -->
         <video *ngIf="mediaObject.mediaType === 'video'" width="600" height="400">
-            <source type="video/mp4" src={{mediaObject.mediaContent}}>
+            <source src={{mediaObject.mediaContent}}>
         </video>
+
+        <!-- media type: audio -->
         <div *ngIf="mediaObject.mediaType === 'audio'" class="audio-thumbnail">
             <div class="material-icons">
                 volume_up
             </div>
         </div>
+
     </div>
 </div>

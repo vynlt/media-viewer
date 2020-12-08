@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { MediaDialogComponent } from '../media-dialog/media-dialog.component';
 
+
+import * as json from './mock-video.json';
+
 const longMockString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 const MEDIA_OBJECTS = [
@@ -28,7 +31,7 @@ const MEDIA_OBJECTS = [
   },
   {
     mediaType: 'video',
-    mediaContent: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    mediaContent: json.base64Str,
     mediaComment: 'Video content from internet resource'
   },
   {
@@ -58,23 +61,25 @@ const MEDIA_OBJECTS = [
   }
 ]
 
+export interface MediaObject {
+  mediaType: string,
+  mediaContent: string,
+  mediaComment: string,
+}
+
 @Component({
   selector: 'app-media-gallery',
   templateUrl: './media-gallery.component.html',
   styleUrls: ['./media-gallery.component.css']
 })
-export class MediaGalleryComponent implements OnInit {
+export class MediaGalleryComponent {
 
   constructor(public dialog: MatDialog) {}
   mediaObjects = MEDIA_OBJECTS;
 
-  ngOnInit(): void {
-  }
-
-  openDialog(media: any): void {
+  openDialog(media: MediaObject): void {
     const dialogRef = this.dialog.open(MediaDialogComponent, {
       data: media,
     });
   }
-
 }

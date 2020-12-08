@@ -4,9 +4,11 @@
     left: 0;
     bottom: 0;
     right: 0;
+    /* make root wrapper full-screened */
     width: 100vw;
-    overflow: initial;
     max-height: 100vh;
+    /* remove existing material property */
+    overflow: initial;
     margin: initial;
     padding: initial;
     /* verical align */
@@ -32,9 +34,10 @@
 }
 
 .comment{
+    /* comment area */
     overflow: auto;
     background-color: white;
-    min-height: 15%;
+    min-height: 8%;
     height: auto;
     margin: 1rem;
     padding: 0.5rem;
@@ -91,6 +94,7 @@
 }
 
 ::ng-deep.mat-dialog-container{
+    /* remove existing library property */
     background: unset;
     box-shadow: unset;
-  }
+}

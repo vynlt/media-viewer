@@ -4,20 +4,25 @@
             <span *ngIf="data.mediaType !== 'audio'" mat-dialog-close class="material-icons dialog-button-close">
                 close
             </span>
-            <video *ngIf="data.mediaType === 'video'" controls [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()" width="100%">
-                <source type="video/mp4" src={{data.mediaContent}}>
-            </video>
-            <img *ngIf="data.mediaType === 'image'" src={{data.mediaContent}} [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">    
-           
 
+            <!-- media type: image -->
+            <img *ngIf="data.mediaType === 'image'" src={{data.mediaContent}} [ngClass]="isVertical === true ? 'vertical-media': 'horizontal-media'" #media (load)="onLoad()">
+
+            <!-- media type: video -->
+            <video *ngIf="data.mediaType === 'video'" controls class="horizontal-media" width="100%">
+                <source src={{data.mediaContent}}>
+            </video>
+           
+            <!-- media type: audio -->
             <div *ngIf="data.mediaType === 'audio'" class="audio-wrapper">
                 <span *ngIf="data.mediaType === 'audio'" mat-dialog-close class="material-icons dialog-audio-close">
                     close
                 </span>
                 <audio controls>
-                <source type="audio/mpeg" src={{data.mediaContent}}>
-            </audio>
+                    <source src={{data.mediaContent}}>
+                </audio>
             </div>
+
         </div>
     </div>
     <div class="comment">
